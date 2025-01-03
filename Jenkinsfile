@@ -10,6 +10,7 @@ pipeline{
                 }
             }
             steps{
+                cleanWs()
                 sh '''
                 echo "Building file"
                 mkdir build
