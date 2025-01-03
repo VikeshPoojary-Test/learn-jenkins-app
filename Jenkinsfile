@@ -26,9 +26,11 @@ pipeline{
                 }
             }
             steps{
+                sh'''
                 echo "Test Stage ----> Jan 03"
                 test -f build/index.html
                 npm test
+                '''
             }
         }
     }
