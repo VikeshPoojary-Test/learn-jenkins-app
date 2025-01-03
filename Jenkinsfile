@@ -10,12 +10,14 @@ pipeline{
                 }
             }
             steps{
-                cleanWs()
                 sh '''
                 echo "Building file"
-                mkdir build
-                touch build/index.html
-                echo "MainBoard" >> build/index.html
+                ls -la
+                node version
+                npm --version
+                npm ci
+                npm run build
+                ls -la
                 '''
             }
         }
