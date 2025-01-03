@@ -12,6 +12,9 @@ pipeline{
             steps{
                 sh '''
                 echo "Building file"
+                mkdir build
+                touch build/index.html
+                echo "MainBoard" >> build/index.html
                 '''
             }
         }
@@ -24,8 +27,8 @@ pipeline{
             }
             steps{
                 echo "Test Stage ----> Jan 03"
-                // test -f build/index.html
-                // npm test
+                test -f build/index.html
+                npm test
             }
         }
     }
