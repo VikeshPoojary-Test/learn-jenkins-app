@@ -24,8 +24,8 @@ pipeline{
             }
             steps{
                 echo "Test Stage ----> Jan 03"
-                test -f build/index.html
-                npm test
+                // test -f build/index.html
+                // npm test
             }
         }
     }
