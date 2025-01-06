@@ -11,8 +11,8 @@ pipeline{
             }
             steps{
                 sh '''
-                echo "Building file"
                 ls -la
+                node --version
                 npm --version
                 npm ci
                 npm run build
@@ -29,7 +29,6 @@ pipeline{
             }
             steps{
                 sh'''
-                echo "Test Stage ----> Jan 03"
                 test -f build/index.html
                 npm test
                 '''
