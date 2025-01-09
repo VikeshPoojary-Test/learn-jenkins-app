@@ -33,6 +33,18 @@ pipeline{
                 '''
             }
         }
+        stage('E2E Test'){
+            agent{
+                image 'mcr.microsoft.com/playwright:v1.49.1-noble'
+                reuseNode true
+            }
+            steps{
+                sh '''
+                    npm install -g serve
+                    serve -s build
+                '''
+            }
+        }
     }
     post{
         always{
