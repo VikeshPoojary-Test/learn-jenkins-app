@@ -44,7 +44,9 @@ pipeline{
                 sh '''
                     echo "-----------------------E2E---------------------------"
                     npm install -g serve
-                    serve -s build
+                    serve -s build &
+                    sleep 10
+                    npx playwright test
                 '''
             }
         }
