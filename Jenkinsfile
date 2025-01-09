@@ -20,6 +20,11 @@ pipeline{
             }
         }
         stage('Test'){
+            post{
+                always{
+                    junit 'test-results/junit.xml'
+                }
+             }
             agent{
                 docker{
                     image 'node:18-alpine'
@@ -51,9 +56,5 @@ pipeline{
             }
         }
     }
-    post{
-        always{
-            junit 'test-results/junit.xml'
-        }
-    }
+    
 }
