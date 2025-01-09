@@ -40,6 +40,7 @@ pipeline{
             }
             steps{
                 sh '''
+                    echo "-----------------------E2E---------------------------"
                     npm install -g serve
                     serve -s build
                 '''
