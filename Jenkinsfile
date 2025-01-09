@@ -44,7 +44,7 @@ pipeline{
                 sh '''
                     echo "-----------------------E2E---------------------------"
                     npm install serve
-                    serve -s build &
+                    node_modules/.bin/serve -s build &
                     sleep 10
                     npx playwright test
                 '''
