@@ -93,15 +93,18 @@ pipeline{
                     reuseNode true
                 }
             }
+
             environment{
                 CI_ENVIRONMENT_URL = 'https://monumental-cannoli-455167.netlify.app'
             }
+
             steps{
                 sh '''
                     echo "----------------------Production E2E---------------------------"
                     npx playwright test --reporter=html
                 '''
             }
+            
             post{
                 always{
                     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Prod E2E HTML Report', reportTitles: '', useWrapperFileDirectly: true])
