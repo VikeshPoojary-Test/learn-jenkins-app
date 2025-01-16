@@ -93,12 +93,12 @@ pipeline{
                     reuseNode true
                 }
             }
+            environment{
+                CI_ENVIRONMENT_URL = 'https://monumental-cannoli-455167.netlify.app'
+            }
             steps{
                 sh '''
                     echo "----------------------Production E2E---------------------------"
-                    npm install serve
-                    node_modules/.bin/serve -s build &
-                    sleep 10
                     npx playwright test --reporter=html
                 '''
             }
