@@ -86,7 +86,15 @@ pipeline{
                 '''
             }
         }
-        stage('Deploy to deploy'){
+        stage('Approval'){
+            steps{
+                sh '''
+                    input message: 'Deploy to production ?', ok: 'Deploy'
+                '''
+            }
+        }
+
+        stage('Deploy to Prod'){
             agent{
                 docker{
                     image 'node:18-alpine'
