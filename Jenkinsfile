@@ -69,6 +69,7 @@ pipeline{
                 }
             }
         }
+
         stage('Deploy to staging'){
             agent{
                 docker{
@@ -86,11 +87,10 @@ pipeline{
                 '''
             }
         }
+
         stage('Approval'){
             steps{
-                sh '''
                     input message: 'Deploy to production ?', ok: 'Deploy'
-                '''
             }
         }
 
