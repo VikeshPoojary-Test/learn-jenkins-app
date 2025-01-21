@@ -90,7 +90,9 @@ pipeline{
 
         stage('Approval'){
             steps{
-                input message: 'Deploy to production', ok: 'Yes,  Deploy'
+                timeout(1) {
+                    input message: 'Deploy to production', ok: 'Yes,  Deploy'
+                }
             }
         }
 
