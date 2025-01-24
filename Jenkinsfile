@@ -88,13 +88,13 @@ pipeline{
             }
         }
 
-        stage('Approval'){
-            steps{
-                timeout(1) {
-                    input message: 'Deploy to production', ok: 'Yes,  Deploy'
-                }
-            }
-        }
+        // stage('Approval'){
+        //     steps{
+        //         timeout(1) {
+        //             input message: 'Deploy to production', ok: 'Yes,  Deploy'
+        //         }
+        //     }
+        // }
 
         stage('Deploy to Prod'){
             agent{
