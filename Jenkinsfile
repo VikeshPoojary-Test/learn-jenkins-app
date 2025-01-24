@@ -111,6 +111,9 @@ pipeline{
                     node_modules/.bin/netlify status
                     node_modules/.bin/netlify deploy --dir=build --prod
                 '''
+                script{
+                    env.MY_DATE = sh(script:'date', retrunStdout: true)
+                }
             }
         }
         stage('Prod E2E Test'){
@@ -127,6 +130,7 @@ pipeline{
 
             steps{
                 sh '''
+                    echo "THE DATE IS : $env.MY_DATE"
                     echo "----------------------Production E2E---------------------------"
                     npx playwright test --reporter=html
                 '''
