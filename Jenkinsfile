@@ -129,9 +129,9 @@ pipeline{
             }
 
             steps{
+                echo 'THE DATE IS : $env.MY_DATE'
                 sh '''
-                    echo 'THE DATE IS : $env.MY_DATE'
-                    echo "----------------------Production E2E---------------------------"
+                    echo '----------------------Production E2E---------------------------'
                     npx playwright test --reporter=html
                 '''
             }
